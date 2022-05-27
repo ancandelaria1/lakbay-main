@@ -1,0 +1,55 @@
+.navbar {
+  position: fixed;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #89b16b;
+  display: inline-block;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+  color: white;
+  padding-bottom: 0px;
+  border-bottom: 3px solid black;
+}
+
+#landingpage_bg {
+  background-color: #89b16b73;
+}
+
+#landingpage_lakbay {
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px;
+}
+
+#landingpage_lakbaybtn {
+  background-color: #89b16b;
+  text-align: center;
+  color: black;
+  font-family: Helvetica, sans-serif;
+  border-color: transparent;
+  padding: 5px 100px;
+}
+
+#landingpage_footer {
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  margin-top: 40px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 130px;
+}
+
+#btn_Trip {
+  background-color: #89b16b;
+  border-color: #89b16b;
+}
+
+#btn_Trip:hover {
+  background-color: #75a452;
+}
+
