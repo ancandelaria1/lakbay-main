@@ -18,7 +18,14 @@ class TripsController extends Controller
      */
     public function index()
     {
-        //
+        $trip_profiles = Trips::where('_userid', '=', auth()->user()->email);
+        return view('trips.view-trip-profile.')->with('trip_profiles', $trip_profiles);
+        
+    }
+
+    public function viewTripProfile() {
+        $trip_profiles = Trips::where('_userid', '=', auth()->user()->email)->get();
+        return view('trips.view-trip-profile', compact('trip_profiles'));
     }
 
     /**
@@ -53,7 +60,7 @@ class TripsController extends Controller
         
 
         if($data){
-            return redirect()->route('index')->with('success', 'Trip profile has been created');
+            return redirect()->route('view-trip-profile')->with('success', 'Trip profile has been created');
         } else{
             return redirect()->route('create-trip-profile');
         }
@@ -68,7 +75,7 @@ class TripsController extends Controller
      */
     public function show(Trips $trips)
     {
-        return view('view-trip-profile',compact('trip_profile'));  
+        return view('trips.view-trip-profile',compact('trip_profile'));  
     }
 
     /**
@@ -77,9 +84,14 @@ class TripsController extends Controller
      * @param  \App\Models\Trips  $trips
      * @return \Illuminate\Http\Response
      */
-    public function edit(Trips $trips)
-    {
-        return view('edit-trip-profile',compact('trip_profile'));  
+    public function edit($id) {
+        $trip_profile = Trips::find($id);
+        return view('trips.edit-trip-profile', compact('trip_profile'));
+    }
+
+    public function editTripProfile($id) {
+        $trip_profile_id = Trips::find($id);
+        return view('trips.edit-trip-profile', compact('trip_profile_id', $id));
     }
 
     /**
@@ -89,7 +101,7 @@ class TripsController extends Controller
      * @param  \App\Models\Trips  $trips
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Trips $trips)
+    public function update(Request $request, $id)
     {
         //
     }

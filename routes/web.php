@@ -24,10 +24,12 @@ Route::get('/group', [ViewsController::class, 'viewGroups'])->name('groups');
 
 // Manage your trips
 Route::post('/trip-profile', [TripsController::class, 'store'])->name('store-trip-profile');
+Route::get('/view-trip-profile', [TripsController::class, 'viewTripProfile'])->name('view-trip-profile');
+Route::get('/edit-trip-profile/{id}', [TripsController::class, 'edit'])->name('edit-trip-profile');
+Route::get('/update-trip-profile/{id}', [TripsController::class, 'update'])->name('update-trip-profile');
+Route::post('/delete-trip-profile', [TripsController::class, 'delete'])->name('delete-trip-profile');
 
 Route::get('/create-trip-profile', [ViewsController::class, 'createTripProfile'])->name('create-trip-profile');
-Route::get('/view-trip-profile', [ViewsController::class, 'viewTripProfile'])->name('view-trip-profile');
-Route::get('/edit-trip-profile', [ViewsController::class, 'editTripProfile'])->name('edit-trip-profile');
 
 // Find my trips
 Route::get('/search-trips', [ViewsController::class, 'searchTrips'])->name('search-trips');

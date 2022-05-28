@@ -5,36 +5,38 @@
         </h2> -->
         <!-- Trips navigation-->
         <nav id="nav_Trips" class="nav nav-borders">
-            <a class="nav-link" href="{{ route('groups') }}" target="_self">Your Group</a>
-            <a class="nav-link" href="{{ route('view-trip-profile') }}" target="_self">View Trip Profile</a>
-            <a class="" href="" target="_self">Edit Trip Profile</a>
+            <a class="nav-link" href="{{route('groups')}}" target="_self">Your Group</a>
+            <a class="nav-link" href="{{route('view-trip-profile')}}" target="_self">View Trip Profile</a>
         </nav>
     </x-slot>
 
     <div id="createTripProfile">
     <div class="container-xl px-4 mt-4">
         <div class="row">
-            <div class="col-xl-4">
-                <!-- Profile picture card-->
+            <!-- <div class="col-xl-4">
+                <! -- Profile picture card-- >
                 <div class="card mb-4 mb-xl-0">
                     <div class="card-header">Display Picture</div>
                     <div class="card-body text-center">
-                        <!-- Profile picture image-->
+                        <! -- Profile picture image -- >
                         <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                        <!-- Profile picture help block-->
+                        <! -- Profile picture help block -- >
                         <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                        <!-- Profile picture upload button-->
+                        <! -- Profile picture upload button -- >
                         <button id="btn_Trip" class="btn btn-primary" type="button">Upload new image</button>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-8">
-            <!-- <div class="col-xl-10 mx-auto"> -->
+            </div> -->
+            <!-- <div class="col-xl-4">
+            <a class="btn btn-primary" href="{{ route('delete-trip-profile') }}" enctype="multipart/form-data">Delete profile</a>
+            </div>   -->
+            <!-- <div class="col-xl-8"> -->
+            <div class="col-xl-10 mx-auto">
                 <!-- Create Trip Profile card-->
                 <div class="card mb-4">
-                    <div class="card-header">Trip Profile Information</div>
+                    <div class="card-header">Edit Profile Information</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('store-trip-profile') }}" enctype='multipart/form-data'>
+                        <form method="PUT" action="{{ route('update-trip-profile', $trip_profile->id) }}" enctype='multipart/form-data'>
                         @csrf
                             <!-- Form Group (username)
                             <div class="mb-3">
@@ -47,71 +49,73 @@
                                 <input class="form-check-input" type="checkbox" id="isDriver" checked>
                             </div> -->
                             <!-- Form Group (driver / passenger ) -->
+                            @if ($trip_profile->riderType == "Passenger")
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label" for="isDriver">Driver</label>
-                                <input class="form-check-input" type="radio" name ="riderType" id="isDriver" value="Driver" checked>
+                                <input class="form-check-input" type="radio" name ="riderType" id="isDriver" value="Driver" {{ ( $trip_profile->riderType == "Driver")? "checked" : "" }} >
                             </div>
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label" for="isPassenger">Passenger</label>
-                                <input class="form-check-input" type="radio" name ="riderType" id="isPassenger" value="Passenger">
+                                <input class="form-check-input" type="radio" name ="riderType" id="isPassenger" value="Passenger" {{ ( $trip_profile->riderType == "Passenger")? "checked" : "" }}  >
                             </div>
+                            @endif
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
                                 <!-- Form Group (first name)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="firstName">First name</label>
-                                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Enter your first name" value="">
+                                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Enter your first name" value="{{ $trip_profile->firstName }}">
                                 </div>
                                 <!-- Form Group (last name)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="lastName">Last name</label>
-                                    <input class="form-control" id="lastName" name= "lastName" type="text" placeholder="Enter your last name" value="">
+                                    <input class="form-control" id="lastName" name= "lastName" type="text" placeholder="Enter your last name" value="{{ $trip_profile->lastName }}">
                                 </div>
                             </div>
                             <!-- Form Group (male / female ) -->
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label" for="isMale">Male</label>
-                                <input class="form-check-input" type="radio" name ="gender" id="isMale" value="Male" checked>
+                                <input class="form-check-input" type="radio" name ="gender" id="isMale" value="Male" {{ ( $trip_profile->gender == "Male")? "checked" : "" }} >
                             </div>
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label" for="isFemale">Female</label>
-                                <input class="form-check-input" type="radio" name ="gender" id="isFemale" value="Female">
+                                <input class="form-check-input" type="radio" name ="gender" id="isFemale" value="Female" {{ ( $trip_profile->gender == "Female")? "checked" : "" }} >
                             </div>
                             <!-- Form Row -->
                             <div class="row gx-3 mb-3">
                                 <!-- Form Group (mobile Number)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="mobileNumber">Mobile Number</label>
-                                    <input class="form-control" id="mobileNumber" name="mobileNumber" type="text" placeholder="Enter your active mobile number" value="">
+                                    <input class="form-control" id="mobileNumber" name="mobileNumber" type="text" placeholder="Enter your active mobile number" value="{{ $trip_profile->mobileNumber }}">
                                 </div>
                                 <!-- Form Group (preferred communication channel)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="commChannel">Preferred Communication Channel</label>
-                                    <input class="form-control" id="commChannel" name="commChannel" type="text" placeholder="Facebook / Viber / SMS / Email / others" value="">
+                                    <input class="form-control" id="commChannel" name="commChannel" type="text" placeholder="Facebook / Viber / SMS / Email / others" value="{{ $trip_profile->commChannel }}">
                                 </div>
                             </div>
                             <!-- Form Group (origin)-->
                             <div class="mb-3">
                                 <label class="small mb-1" for="originAddress">Origin</label>
-                                <input class="form-control" id="originAddress" name="originAddress" type="text" placeholder="Where are you leaving from?" value="">
+                                <input class="form-control" id="originAddress" name="originAddress" type="text" placeholder="Where are you leaving from?" value="{{ $trip_profile->originAddress }}">
                             </div>
                             <!-- Form Group (estimated departure time )-->
                             <div class="row gx-3 mb-3">
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="departureTime">Estimated Departure Time</label>
-                                    <input class="form-control" id="departureTime" name="departureTime" type="time" placeholder="" value="">
+                                    <input class="form-control" id="departureTime" name="departureTime" type="time" placeholder="" value="{{ $trip_profile->departureTime }}">
                                 </div>
                             </div>
                             <!-- Form Group (destination)-->
                             <div class="mb-3">
                                 <label class="small mb-1" for="destinationAddress">Destination</label>
-                                <input class="form-control" id="destinationAddress" name="destinationAddress" type="text" placeholder="Where are you heading?" value="">
+                                <input class="form-control" id="destinationAddress" name="destinationAddress" type="text" placeholder="Where are you heading?" value="{{ $trip_profile->destinationAddress }}">
                             </div>
                             <!-- Form Group (estimated arrival time )-->
                             <div class="row gx-3 mb-3">
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="arrivalTime">Estimated Arrival Time</label>
-                                    <input class="form-control" id="arrivalTime" name="arrivalTime" type="time" placeholder="" value="">
+                                    <input class="form-control" id="arrivalTime" name="arrivalTime" type="time" placeholder="" value="{{ $trip_profile->arrivalTime }}">
                                 </div>
                             </div>
                             <!-- Form Group (frequency of trip)-->
@@ -121,31 +125,31 @@
                             <!-- Form Group (frequency)-->
                             <div class="form-check form-check-inline">
                             <label class="form-check-label" for="isSunday">Sun</label>
-                            <input class="form-check-input" type="checkbox" id="isSunday" name="frequency[]" value="Sunday">
+                            <input class="form-check-input" type="checkbox" id="isSunday" name="frequency[]" value="Sunday" {{ ( str_contains( $trip_profile->frequency, "Sunday" ))? "checked" : "" }}>
                             </div>
                             <div class="form-check form-check-inline">
                             <label class="form-check-label" for="isMonday">Mon</label>
-                            <input class="form-check-input" type="checkbox" id="isMonday" name="frequency[]" value="Monday" checked="">
+                            <input class="form-check-input" type="checkbox" id="isMonday" name="frequency[]" value="Monday" {{ ( str_contains( $trip_profile->frequency, "Monday" ))? "checked" : "" }}>
                             </div>
                             <div class="form-check form-check-inline">
                             <label class="form-check-label" for="isTuesday">Tue</label>
-                            <input class="form-check-input" type="checkbox" id="isTuesday" name="frequency[]" value="Tuesday" checked="">
+                            <input class="form-check-input" type="checkbox" id="isTuesday" name="frequency[]" value="Tuesday" {{ ( str_contains( $trip_profile->frequency, "Tuesday" ))? "checked" : "" }}>
                             </div>
                             <div class="form-check form-check-inline">
                             <label class="form-check-label" for="isWednesday">Wed</label>
-                            <input class="form-check-input" type="checkbox" id="isWednesday" name="frequency[]" value="Wednesday" checked="">
+                            <input class="form-check-input" type="checkbox" id="isWednesday" name="frequency[]" value="Wednesday" {{ ( str_contains( $trip_profile->frequency, "Wednesday" ))? "checked" : "" }}>
                             </div>
                             <div class="form-check form-check-inline">
                             <label class="form-check-label" for="isThursday">Thu</label>
-                            <input class="form-check-input" type="checkbox" id="isThursday" name="frequency[]" value="Thursday" checked="">
+                            <input class="form-check-input" type="checkbox" id="isThursday" name="frequency[]" value="Thursday" {{ ( str_contains( $trip_profile->frequency, "Thursday" ))? "checked" : "" }}>
                             </div>
                             <div class="form-check form-check-inline">
                             <label class="form-check-label" for="isFriday">Fri</label>
-                            <input class="form-check-input" type="checkbox" id="isFriday" name="frequency[]" value="Friday" checked="">
+                            <input class="form-check-input" type="checkbox" id="isFriday" name="frequency[]" value="Friday" {{ ( str_contains( $trip_profile->frequency, "Friday" ))? "checked" : "" }}>
                             </div>
                             <div class="form-check form-check-inline">
                             <label class="form-check-label" for="isSaturday">Sat</label>
-                            <input class="form-check-input" type="checkbox" id="isSaturday" name="frequency[]" value="Saturday">
+                            <input class="form-check-input" type="checkbox" id="isSaturday" name="frequency[]" value="Saturday" {{ ( str_contains( $trip_profile->frequency, "Saturday" ))? "checked" : "" }}>
                             </div>
                             <div class="mt-3">
                             </div>
@@ -186,11 +190,15 @@
                             <textarea class="form-control" id="travelInterests" name="travelInterests" rows="3"></textarea>
                             </div>
                             <!-- Save button-->
-                            <button id="btn_Trip" class="btn btn-primary">Save</button>
+                            <div class="buttons">
+                                <a id="btn_Trip" class="btn btn-primary">Update Profile</a>
+                                <a class="btn btn-danger" href="{{ route('delete-trip-profile') }}" enctype="multipart/form-data">Delete profile</a>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </x-app-layout>
