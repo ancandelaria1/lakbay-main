@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
@@ -25,7 +25,7 @@
             @if (Auth::user())
                 @livewire('navigation-menu')
             @endif
-            
+
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">

@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100" > 
+<nav x-data="{ open: false }" class="border-b border-gray-100" id="nav-main">
 <!--<nav x-data="{ open: false }" class="navbar navbar-light navbar-expand-md fixed-top"> -->
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -7,7 +7,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('index') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        {{--  <x-jet-application-mark class="block h-9 w-auto" />  --}}
                     </a>
                 </div>
 
@@ -158,7 +158,7 @@
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
 
-            
+
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <div class="shrink-0 mr-3">
                         <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->username }}" />
@@ -182,7 +182,7 @@
                 <x-jet-responsive-nav-link href="{{ route('search-trips') }}" :active="request()->routeIs('search-trips')">
                     {{ __('Look for Trips') }}
                 </x-jet-responsive-nav-link>
-                
+
                 <!-- Account Management -->
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}

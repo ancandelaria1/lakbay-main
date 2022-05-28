@@ -19,7 +19,7 @@ use App\Http\Controllers\InvitesController;
 
 Route::get('/', function () {
     return view('index');
-})->name('index'); 
+})->name('index');
 
 
 // Groups
