@@ -6,7 +6,8 @@
         <!-- Trips navigation-->
         <nav id="nav_Trips" class="nav nav-borders">
             <a class="nav-link" href="{{route('groups')}}" target="_self">Your Group</a>
-            <a class="nav-link" href="{{route('view-trip-profile')}}" target="_self">View Trip Profile</a>
+            <a class="nav-link active ms-0" href="{{route('view-trip-profile')}}" target="_self">View Trip Profile</a>
+            <a class="nav-link" href="{{ route('search-trips') }}" target="_self">Find Trips</a>
         </nav>
     </x-slot>
 
