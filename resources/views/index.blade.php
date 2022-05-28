@@ -30,9 +30,7 @@
 
             <div class="container">
                 @if (Auth::user())
-                    <a class="navbar-brand" href="{{ route('create-trip-profile') }}">LKBY</a>
-                @else
-                    <a class="navbar-brand" href="{{ url('/register') }}">LKBY</a>
+                    <a class="navbar-brand" href="{{ route('index') }}">LKBY</a>
                 @endif
                 @if (Route::has('login'))
                     <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
@@ -57,7 +55,11 @@
                 <div class="container-fluid py-5">
                     <h1 class="display-5 fw-bold">LAKBAY</h1>
                     <p id="landingpage_lakbayparagraph" class="fs-4">/lak·báy/<br><br><br></p>
-                    <a class="btn btn-primary btn-lg" role="button" id="landingpage_lakbaybtn" href="{{ route('create-trip-profile') }}">Ride</a>
+                    @if (Auth::user())
+                        <a class="btn btn-primary btn-lg" role="button" id="landingpage_lakbaybtn" href="{{ route('groups') }}">Take your ride now!</a>
+                    @else
+                        <a class="btn btn-primary btn-lg" role="button" id="landingpage_lakbaybtn" href="{{ route('login') }}">Login</a>
+                    @endif
                 </div>
             </div>
         </div>

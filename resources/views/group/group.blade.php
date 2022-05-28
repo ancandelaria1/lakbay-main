@@ -13,25 +13,8 @@
 
     <div>
     <div class="container">
+        <a  class="btn btn-danger px-4 ms-0"> Leave Group </a>
         <div class="row" id="team">
-            <!-- TEAM MEMBER 1 - START -->
-            <div class="col-xs-6 col-sm-3">
-                <div class="team-member">
-                    <div class="overlay-wrapper2">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive" alt="">
-                        <span class="overlay" style="display: none;">
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
-                        </span>
-                    </div>
-                    <h4>John Doe</h4>
-                    <span>CEO</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec nulla sagittis, scelerisque mi vitae.</p>
-                </div>
-            </div>
-            <!-- TEAM MEMBER 1 - END -->
-            
             <!-- TEAM MEMBER 2 - START -->
             <div class="col-xs-6 col-sm-3">
                 <div class="team-member">
@@ -67,24 +50,11 @@
                 </div>
             </div>
             <!-- TEAM MEMBER 3 - END -->
-            
-            <!-- TEAM MEMBER 4 - START -->
-            <div class="col-xs-6 col-sm-3">
-                <div class="team-member">
-                    <div class="overlay-wrapper2">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="img-responsive" alt="">
-                        <span class="overlay" style="display: none;">
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
-                        </span>
-                    </div>
-                    <h4>John Doe</h4>
-                    <span>Photographer</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec nulla sagittis, scelerisque mi vitae.</p>
-                </div>
-            </div>
-            <!-- TEAM MEMBER 4 - END -->
+
+                <!-- <div  class="alert alert-warning radius-bordered alert-shadowed">
+                <strong>You have no groups yet.</strong> 
+                    <a id="btn_Trip" class="btn btn-primary px-4 ms-3" href ="{{ route('search-trips') }}">Search Trips</a>
+                </div> -->
         </div>
     </div>
     </div>

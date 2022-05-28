@@ -22,6 +22,7 @@ class Invites extends Model
         'riderType',
         'firstName',
         'lastName',
+        'gender',
         'mobileNumber',
     ];
 

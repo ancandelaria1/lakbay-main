@@ -22,7 +22,7 @@ class Groups extends Model
         'riderType',
         'firstName',
         'lastName',
-
+        'gender',
     ];
 
     protected $dates = ['created_at', 'updated_at'];

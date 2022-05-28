@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <style type="text/css">
+        .min-h-screen {
+            background-color: #89b16b73;;
+        } 
+    </style>
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />

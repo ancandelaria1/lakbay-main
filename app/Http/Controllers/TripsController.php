@@ -50,8 +50,8 @@ class TripsController extends Controller
         $data = new Trips ($request->all());
 
         // convert checkbox values 
-        $arrayToString = implode(',', $request->input('frequency'));
-        $data['frequency'] = $arrayToString;
+        // $arrayToString = implode(',', $request->input('frequency'));
+        $data['frequency'] = $request->frequency;
         
         // set user registered email as default key
         $data['_userid'] = auth()->user()->email;
@@ -102,8 +102,44 @@ class TripsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        
+        $trip_profile = Trips::find($id);
+        if(!is_null($trip_profile)){
+        
+        // convert checkbox values 
+        //$frequencyToString = implode(',', $request->frequency);
+
+        $trip_profile->firstName = $request->firstName;
+        $trip_profile->lastName  = $request->lastName;
+        $trip_profile->gender  = $request->gender;
+        $trip_profile->mobileNumber = $request->mobileNumber;
+        $trip_profile->commChannel = $request->commChannel;
+        $trip_profile->originAddress = $request->originAddress;
+        $trip_profile->departureTime = $request->departureTime;
+        $trip_profile->destinationAddress = $request->destinationAddress;
+        $trip_profile->arrivalTime = $request->arrivalTime;
+        $trip_profile->frequency = $request->frequency;
+        $trip_profile->facebook = $request->facebook;
+        $trip_profile->instagram = $request->instagram;
+        $trip_profile->linkedin = $request->linkedin;
+        $trip_profile->emailAddress = $request->emailAddress;
+        $trip_profile->workInterests = $request->workInterests;
+        $trip_profile->travelInterests = $request->travelInterests;
+
+        $trip_profile->save();
+
+        if($trip_profile){
+            return redirect()->route('view-trip-profile')->with('success', 'Trip profile has been updated');
+        }else{
+            return view('trips.edit-trip-profile', compact('trip_profile'));
+        }
+
+        }
+        else{
+
+        
+        }
     }
 
     /**
@@ -114,6 +150,11 @@ class TripsController extends Controller
      */
     public function destroy(Trips $trips)
     {
-        //
+        if (confirm('Are you sure you want to update the widget settings?')) {
+            showLoader();
+        }
+        else{
+            
+        }
     }
 }
