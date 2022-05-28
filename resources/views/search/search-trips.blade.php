@@ -15,10 +15,6 @@
                                             <option>Location</option>
                                             <option>London</option>
                                             <option>Boston</option>
-                                            <option>Mumbai</option>
-                                            <option>New York</option>
-                                            <option>Toronto</option>
-                                            <option>Paris</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-8 col-md-6 col-sm-12 p-0">
@@ -37,43 +33,43 @@
             </div>
     </div>
     </div>
-        <div class="member-entry">
-
-
-            <a href="#" class="member-img">
-                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-rounded">
-                <i class="fa fa-forward"></i>
-            </a>
-            <div class="member-details">
-                <h4> <a href="#">Johnnie Linton</a> </h4>
-                <div class="row info-list">
-                    <div class="col-sm-4">
-                        <i class="fa fa-briefcase"></i>
-                        Co-Founder at <a href="#">Complete Tech</a>
-                    </div>
-                    <div class="col-sm-4">
-                        <i class="fa fa-twitter"></i>
-                        <a href="#">@johnnie</a>
-                    </div>
-                    <div class="col-sm-4">
-                        <i class="fa fa-facebook"></i>
-                        <a href="#">fb.me/johnnie</a>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="col-sm-4">
-                        <i class="fa fa-location"></i>
-                        <a href="#">Prishtina</a>
-                    </div>
-                    <div class="col-sm-4">
-                        <i class="fa fa-envelope"></i>
-                        <a href="#">john@gmail.com</a>
-                    </div>
-                    <div class="col-sm-4">
-                        <i class="fa fa-linkedin"></i>
-                        <a href="#">johnkennedy</a>
-                    </div>
+        @if (!$trip_profiles->isEmpty())
+        @foreach($trip_profiles as $trip_profile)
+        <div class="member-entry"> 
+            <a href="#" class="member-img"> 
+                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-rounded"> 
+                <i class="fa fa-forward"></i> 
+            </a> 
+            <div class="member-details"> 
+                <h4> <a href="#">{{ $trip_profile->firstName }} {{ $trip_profile->lastName }}</a> </h4> 
+                <div class="row info-list"> 
+                    <div class="col-sm-4"> 
+                        {{ $trip_profile->gender }} {{ $trip_profile->riderType }}
+                    </div> 
+                    <div class="col-sm-4"> 
+                        Departure Time: {{ $trip_profile->departureTime }} 
+                    </div> 
+                    <div class="col-sm-4"> 
+                        Origin Address: {{ $trip_profile->originAddress }} 
+                    </div> 
+                    <div class="clear"></div> 
+                    <div class="col-sm-4"> 
+                    </div> 
+                    <div class="col-sm-4"> 
+                        Estimated Arrival Time: {{ $trip_profile->arrivalTime }} 
+                    </div> 
+                    <div class="col-sm-4"> 
+                        Destination Address: {{ $trip_profile->destinationAddress }} 
+                    </div> 
+                </div> 
+                <div class="buttons">
+                    <a id="btn_Trip" class="btn btn-primary px-4 ms-3" href ="{{ route('index') }}">Join</a>
+                    <a id="btn_Trip" class="btn btn-primary px-4 ms-3" href ="{{ route('view-trip-profile') }}">View Profile</a>
                 </div>
-            </div>
+            </div> 
         </div>
+        @endforeach
+        @else
+        @endif
     </div>
 </x-app-layout>
