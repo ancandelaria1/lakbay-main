@@ -1,15 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <!-- <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create Trip profile') }}
-        </h2> -->
-        <!-- Trips navigation-->
-        <nav id="nav_Trips" class="nav nav-borders">
-            <a class="nav-link" href="{{route('groups')}}" target="_self">Your Group</a>
-            <a class="nav-link active ms-0" href="{{route('view-trip-profile')}}" target="_self">View Trip Profile</a>
-            <a class="nav-link" href="{{ route('search-trips') }}" target="_self">Find Trips</a>
-        </nav>
-    </x-slot>
+    @include('layouts.nav-link')
 
     <div id="createTripProfile">
     <div class="container-xl px-4 mt-4">
