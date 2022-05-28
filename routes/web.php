@@ -21,6 +21,7 @@ Route::get('/', function () {
     return view('index');
 })->name('index'); 
 
+
 // Groups
 Route::get('/lakbay-group', [ViewsController::class, 'viewGroups'])->name('groups');
 
