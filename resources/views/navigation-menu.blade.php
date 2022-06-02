@@ -14,7 +14,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('LAKBAY') }}
+                        <i class="fa fa-home"> {{ __('Home') }} </i>
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -100,12 +100,12 @@
                             </div>
 
 
-                            <x-jet-dropdown-link href="{{ route('create-trip-profile') }}">
+                            <x-jet-dropdown-link href="{{ route('view-trip-profile') }}">
                                 {{ __('Manage your Trips') }}
                             </x-jet-dropdown-link>
 
                             <x-jet-dropdown-link href="{{ route('search-trips') }}">
-                                {{ __('Find Trips') }}
+                                {{ __('Explore Trips') }}
                             </x-jet-dropdown-link>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">

@@ -17,7 +17,35 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        //
+        // if(auth()->user()){
+            
+        //     $groups = Groups::where('_userid', '=', auth()->user()->email);
+        //     dd($groups);
+        //     return view('group.group', compact('groups', $groups));
+        // }
+        // else{
+        //     redirect()->route('index')->with('success', 'Re-login in again');
+        // }
+    }
+
+    public function joinGroups($id)
+    {   
+        $trip_profile = Trips::find($id);
+        if($trip_profile)
+        {   
+            $groupId = $trip_profile->groupId;
+            switch($trip_profile->riderType){
+                case ('Driver'):
+                    $trip_profiles = Trips::where('_userid', '<>', auth()->user()->email)->where('riderType', '=', 'Passenger')->get();
+                    
+                    break;
+                case ('Passenger'):
+                    $trip_profiles = Trips::where('_userid', '<>', auth()->user()->email)->where('riderType', '=', 'Driver')->get();
+                    break;
+            }
+            
+            return view('search.search-trips', compact('trip_profiles', 'id', 'groupId' ));
+        }
     }
 
     /**

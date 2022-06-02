@@ -18,7 +18,8 @@
 
 
 .team-member {
-    background: #fff;
+    /* background: #fff; */
+    background: #89b16b;
     text-align: center;
     transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -26,18 +27,19 @@
     -o-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
     margin-top: 20px;
+    border-radius: 5px;
 }
 
 .team-member .team-photo {
-    background: #fff;
-    min-height: 275px;
+    background: #89b16b;
+    min-height: 200px;
     margin: 0 auto;
     padding: 24px 24px 32px 24px;
 }
 
 .team-member .team-photo img{
-    height: 275px;
-    width: 275px;
+    height: 200px;
+    width: 200px;
     border-radius: 15px;
 }
 
@@ -53,7 +55,8 @@
 .team-member .team-attrs .team-position {
     font-size: 12px;
     letter-spacing: 2px;
-    color: #a7a7a7;
+    /* color: #a7a7a7; */
+    color: #000;
 }
 
 .team-member .team-content {

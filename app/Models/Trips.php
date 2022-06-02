@@ -19,6 +19,7 @@ class Trips extends Eloquent
      */
     protected $fillable = [
         '_userid', /* login email as key */
+        'groupId',
         'riderType',
         'firstName',
         'lastName',

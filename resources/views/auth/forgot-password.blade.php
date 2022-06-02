@@ -1,7 +1,14 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <!-- <x-jet-authentication-card-logo /> -->
+            <a href="{{ route('register') }}">
+            <img src="https://www.svgrepo.com/show/176733/road-road.svg" 
+                intrinsicsize="512 x 512" width="150" height="150" 
+                srcset="https://www.svgrepo.com/show/176733/road-road.svg 4x" 
+                alt="Lakbay" 
+                title="Lakbay">
+            </a>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
