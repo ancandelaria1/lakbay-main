@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Lakbay</title>
+        
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -56,7 +57,7 @@
                     <h1 class="display-5 fw-bold">LAKBAY</h1>
                     <p id="landingpage_lakbayparagraph" class="fs-4">/lak·báy/<br><br><br></p>
                     @if (Auth::user())
-                        <a class="btn btn-primary btn-lg" role="button" id="landingpage_lakbaybtn" href="{{ route('groups') }}">Take your ride now!</a>
+                        <a class="btn btn-primary btn-lg" role="button" id="landingpage_lakbaybtn" href="{{ route('groups') }}">Explore!</a>
                     @else
                         <a class="btn btn-primary btn-lg" role="button" id="landingpage_lakbaybtn" href="{{ route('login') }}">Login</a>
                     @endif

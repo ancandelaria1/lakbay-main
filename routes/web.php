@@ -24,6 +24,7 @@ Route::get('/', function () {
 
 // Groups
 Route::get('/lakbay-group', [ViewsController::class, 'viewGroups'])->name('groups');
+Route::get('{id}/join-groups', [GroupsController::class, 'joinGroups'])->name('join-groups');
 
 // Manage your trips
 Route::post('/trip-profile', [TripsController::class, 'store'])->name('store-trip-profile');
@@ -31,11 +32,17 @@ Route::get('/create-trip-profile', [ViewsController::class, 'createTripProfile']
 Route::get('/view-trip-profile', [TripsController::class, 'viewTripProfile'])->name('view-trip-profile');
 Route::get('/edit-trip-profile/{id}', [TripsController::class, 'edit'])->name('edit-trip-profile');
 Route::put('/edit-trip-profile/{id}', [TripsController::class, 'update'])->name('update-trip-profile');
-Route::post('/delete-trip-profile', [TripsController::class, 'delete'])->name('delete-trip-profile');
+Route::get('/delete-trip-profile/{id}', [TripsController::class, 'delete'])->name('delete-trip-profile');
 
+// Invite
+Route::get('/invite-passenger/{id}/{groupId}', [InvitesController::class, 'requestPassengerInvite'])->name('invite-passenger');
+Route::get('/invite-driver/{driverId}/{passengerId}', [InvitesController::class, 'requestDriverInvite'])->name('invite-driver');
+Route::get('/accept-invite/{inviteId}', [InvitesController::class, 'acceptInvite'])->name('accept-invite');
+Route::get('/decline-invite/{inviteId}', [InvitesController::class, 'declineInvite'])->name('decline-invite');
 
 // Find my trips
 Route::get('/search-trips', [ViewsController::class, 'searchTrips'])->name('search-trips');
+Route::get('/open-trip-profile/{id}', [ViewsController::class, 'openTripProfile'])->name('open-trip-profile');
 //Route::get('/search', [TripController::class, 'search.show'])->middleware(['auth'])->name('search.search-trips');
 
 Route::middleware([

@@ -50,12 +50,12 @@
                                 <!-- Form Group (first name)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="firstName">First name</label>
-                                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Enter your first name" value="">
+                                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Enter your first name" value="" required=true>
                                 </div>
                                 <!-- Form Group (last name)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="lastName">Last name</label>
-                                    <input class="form-control" id="lastName" name= "lastName" type="text" placeholder="Enter your last name" value="">
+                                    <input class="form-control" id="lastName" name= "lastName" type="text" placeholder="Enter your last name" value="" required=true>
                                 </div>
                             </div>
                             <!-- Form Group (male / female ) -->
@@ -72,7 +72,7 @@
                                 <!-- Form Group (mobile Number)-->
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="mobileNumber">Mobile Number</label>
-                                    <input class="form-control" id="mobileNumber" name="mobileNumber" type="text" placeholder="Enter your active mobile number" value="">
+                                    <input class="form-control" id="mobileNumber" name="mobileNumber" type="text" placeholder="Enter your active mobile number" value="" required=true>
                                 </div>
                                 <!-- Form Group (preferred communication channel)-->
                                 <div class="col-md-6">
@@ -83,25 +83,25 @@
                             <!-- Form Group (origin)-->
                             <div class="mb-3">
                                 <label class="small mb-1" for="originAddress">Origin</label>
-                                <input class="form-control" id="originAddress" name="originAddress" type="text" placeholder="Where are you leaving from?" value="">
+                                <input class="form-control" id="originAddress" name="originAddress" type="text" placeholder="Where are you leaving from?" value="" required=true>
                             </div>
                             <!-- Form Group (estimated departure time )-->
                             <div class="row gx-3 mb-3">
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="departureTime">Estimated Departure Time</label>
-                                    <input class="form-control" id="departureTime" name="departureTime" type="time" placeholder="" value="">
+                                    <input class="form-control" id="departureTime" name="departureTime" type="time" placeholder="" value="" required=true>
                                 </div>
                             </div>
                             <!-- Form Group (destination)-->
                             <div class="mb-3">
                                 <label class="small mb-1" for="destinationAddress">Destination</label>
-                                <input class="form-control" id="destinationAddress" name="destinationAddress" type="text" placeholder="Where are you heading?" value="">
+                                <input class="form-control" id="destinationAddress" name="destinationAddress" type="text" placeholder="Where are you heading?" value="" required=true>
                             </div>
                             <!-- Form Group (estimated arrival time )-->
                             <div class="row gx-3 mb-3">
                                 <div class="col-md-6">
                                     <label class="small mb-1" for="arrivalTime">Estimated Arrival Time</label>
-                                    <input class="form-control" id="arrivalTime" name="arrivalTime" type="time" placeholder="" value="">
+                                    <input class="form-control" id="arrivalTime" name="arrivalTime" type="time" placeholder="" value="" required=true>
                                 </div>
                             </div>
                             <!-- Form Group (frequency of trip)-->

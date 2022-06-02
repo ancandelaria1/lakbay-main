@@ -4,6 +4,11 @@
   margin: 40px;
 }
 
+#custom_img{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .card {
   border: none;
   position: relative;
